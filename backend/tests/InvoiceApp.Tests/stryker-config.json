@@ -1,0 +1,9 @@
+{
+  "stryker-config": {
+    "solution": "../../InvoiceApp.sln",
+    "project": "InvoiceApp.Domain.csproj",
+    "mutate": ["**/ApprovalService.cs", "**/Invoice.cs", "!**/DiscountCalculator.cs"],
+    "reporters": ["cleartext", "json", "html"],
+    "thresholds": { "high": 90, "low": 70, "break": 0 }
+  }
+}
