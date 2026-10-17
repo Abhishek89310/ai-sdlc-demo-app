@@ -1,0 +1,5 @@
+Stryker.NET 4.13.0, project InvoiceApp.Domain, mutate: ApprovalService.cs, Invoice.cs
+Baseline (before approval-limit work), 7 unit tests
+
+22 mutants tested: 12 killed, 10 survived (0 timeout, 0 no coverage)
+The final mutation score is 54.55 %
