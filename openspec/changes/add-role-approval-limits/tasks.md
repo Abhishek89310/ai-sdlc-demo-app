@@ -14,6 +14,6 @@
 
 ## 3. End-to-end and quality
 
-- [ ] 3.1 Playwright: Manager signs in, over-limit approval refused with visible reason
-- [ ] 3.2 Stryker mutation score before/after in write-up
+- [x] 3.1 Playwright: Manager signs in, over-limit approval refused with visible reason
+- [x] 3.2 Stryker mutation score before/after in write-up
 - [ ] 3.3 Open PR, run review prompt, record verdict per finding
