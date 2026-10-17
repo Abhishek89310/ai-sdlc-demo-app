@@ -19,8 +19,8 @@ export class ApprovalsPage {
     await this.page.getByRole('button', { name: `Approve invoice ${invoiceId}` }).click();
   }
 
-  refusalAlert() {
-    return this.page.getByRole('alert').filter({ hasText: /Manager|Director|approver/ });
+  refusalAlert(reasonText: string) {
+    return this.page.getByRole('alert').filter({ hasText: reasonText });
   }
 
   pendingInvoice(invoiceId: string) {

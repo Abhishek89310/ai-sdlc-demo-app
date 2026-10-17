@@ -157,4 +157,14 @@ public class ApprovalServiceTests
         Assert.Equal(InvoiceStatus.Approved, invoice.Status);
         Assert.Null(invoice.DecisionNote);
     }
+
+    [Fact]
+    public void Reject_StoresTrimmedApproverName()
+    {
+        var service = ServiceFor(InvoiceWith("INV-1", InvoiceStatus.PendingApproval));
+
+        var result = service.Reject("INV-1", "  mia ", "Duplicate");
+
+        Assert.Equal("mia", result.DecidedBy);
+    }
 }

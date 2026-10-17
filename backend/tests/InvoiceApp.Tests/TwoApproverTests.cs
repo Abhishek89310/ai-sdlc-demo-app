@@ -172,4 +172,31 @@ public class TwoApproverTests
 
         Assert.Equal(0, repository.UpdateCount);
     }
+
+    [Fact]
+    public void Approve_DecidedByIsStoredTrimmedLikeFirstApprover()
+    {
+        var invoice = LargeInvoice(firstApprover: "pat");
+
+        var result = ServiceFor(invoice).Approve("INV-9", "  dana ", "Director");
+
+        Assert.Equal("dana", result.DecidedBy);
+    }
+
+    [Fact]
+    public void Approve_TwoDirectorsAtTheSameTime_ProduceOneFirstAndOneSecondApprover()
+    {
+        for (var round = 0; round < 200; round++)
+        {
+            var invoice = LargeInvoice();
+            var service = ServiceFor(invoice);
+
+            Parallel.Invoke(
+                () => service.Approve("INV-9", "dana", "Director"),
+                () => service.Approve("INV-9", "dev", "Director"));
+
+            Assert.Equal(InvoiceStatus.Approved, invoice.Status);
+            Assert.NotEqual(invoice.FirstApprover, invoice.DecidedBy);
+        }
+    }
 }
