@@ -1,9 +1,9 @@
 ## 1. Single-approver limits (step 1)
 
-- [ ] 1.1 Add Manager/Director roles, demo users, and controller role guard
-- [ ] 1.2 Add `ApprovalPolicy` with 50,000 / 500,000 limits and `ApprovalDeniedException`
-- [ ] 1.3 Pass approver role into `ApprovalService.Approve`; validate before mutate
-- [ ] 1.4 Unit tests: boundaries, over-limit refusal reason, refusal leaves invoice unchanged, unknown role
+- [x] 1.1 Add Manager/Director roles, demo users, and controller role guard
+- [x] 1.2 Add `ApprovalPolicy` with 50,000 / 500,000 limits and `ApprovalDeniedException`
+- [x] 1.3 Pass approver role into `ApprovalService.Approve`; validate before mutate
+- [x] 1.4 Unit tests: boundaries, over-limit refusal reason, refusal leaves invoice unchanged, unknown role
 
 ## 2. Two-approver rule (step 2)
 
