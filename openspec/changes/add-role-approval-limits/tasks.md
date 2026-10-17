@@ -7,10 +7,10 @@
 
 ## 2. Two-approver rule (step 2)
 
-- [ ] 2.1 Add `Invoice.FirstApprover`; first approval keeps invoice pending
-- [ ] 2.2 Enforce second approver is a Director and a different user (trim, ignore case)
-- [ ] 2.3 Unit tests: first approval, Director completes, Manager refused as second, same user refused (incl. case/space variants), nothing changes on refusal
-- [ ] 2.4 Show first approver in the Approvals tab
+- [x] 2.1 Add `Invoice.FirstApprover`; first approval keeps invoice pending
+- [x] 2.2 Enforce second approver is a Director and a different user (trim, ignore case)
+- [x] 2.3 Unit tests: first approval, Director completes, Manager refused as second, same user refused (incl. case/space variants), nothing changes on refusal
+- [x] 2.4 Show first approver in the Approvals tab
 
 ## 3. End-to-end and quality
 

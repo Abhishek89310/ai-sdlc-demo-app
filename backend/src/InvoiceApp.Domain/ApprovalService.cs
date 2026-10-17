@@ -32,7 +32,14 @@ public class ApprovalService
     {
         var invoice = Find(invoiceId);
         EnsurePending(invoice);
-        ApprovalPolicy.EnsureCanApproveAlone(invoice.Amount, role);
+        var outcome = ApprovalPolicy.Decide(invoice.Amount, approver, role, invoice.FirstApprover);
+
+        if (outcome == ApprovalOutcome.FirstOfTwo)
+        {
+            invoice.FirstApprover = approver.Trim();
+            _repository.Update(invoice);
+            return invoice;
+        }
 
         invoice.Status = InvoiceStatus.Approved;
         invoice.DecidedBy = approver;

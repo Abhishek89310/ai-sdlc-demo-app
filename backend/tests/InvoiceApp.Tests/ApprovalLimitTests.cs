@@ -11,8 +11,8 @@ public class ApprovalLimitTests
     private static ApprovalService ServiceFor(Invoice invoice) => new(new FakeInvoiceRepository(invoice));
 
     /// <summary>Every field a refused approval must leave alone.</summary>
-    private static (InvoiceStatus, string?, DateTime?, string?) Snapshot(Invoice invoice) =>
-        (invoice.Status, invoice.DecidedBy, invoice.DecidedAt, invoice.DecisionNote);
+    private static (InvoiceStatus, string?, string?, DateTime?, string?) Snapshot(Invoice invoice) =>
+        (invoice.Status, invoice.FirstApprover, invoice.DecidedBy, invoice.DecidedAt, invoice.DecisionNote);
 
     private static ApprovalDeniedException AssertRefusedAndUnchanged(Invoice invoice, string approver, string role)
     {
@@ -64,18 +64,6 @@ public class ApprovalLimitTests
 
         Assert.Equal(InvoiceStatus.Approved, result.Status);
         Assert.Equal("dana", result.DecidedBy);
-    }
-
-    [Theory]
-    [InlineData("Manager")]
-    [InlineData("Director")]
-    public void Approve_AboveDirectorLimit_IsRefusedForASingleApprover(string role)
-    {
-        var invoice = PendingInvoice(500_000.01m);
-
-        var error = AssertRefusedAndUnchanged(invoice, "dana", role);
-
-        Assert.Contains("two distinct approvers", error.Message);
     }
 
     [Theory]

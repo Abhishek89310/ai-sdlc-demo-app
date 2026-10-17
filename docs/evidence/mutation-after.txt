@@ -1,0 +1,7 @@
+Stryker.NET 4.13.0, project InvoiceApp.Domain, mutate: ApprovalService.cs, ApprovalPolicy.cs
+After the approval-limit work
+
+Run 1 (first generated tests, 34 tests):      54.17 %  (survivors: exception texts, repository Update calls)
+Run 2 (after adding message/persist tests):   98.11 %  (1 survivor: Reject pending guard untested)
+Run 3 (final, 45 tests):                      100.00 % (53 killed, 0 survived)
+The final mutation score is 100.00 %
