@@ -9,3 +9,5 @@ node_modules/
 test-results/
 playwright-report/
 StrykerOutput/
+.DS_Store
+.claude/
