@@ -1,6 +1,6 @@
 # AI in SDLC Assignment: approval limits by role
 
-**Demo video:** _add link here after upload_
+**Demo video:** [Video/ai-sdlc-approval-limits-demo.mp4](Video/ai-sdlc-approval-limits-demo.mp4) (8 min 34 s, captioned, no audio; terminal sections recorded in the real macOS Terminal)
 
 ## What was built
 
